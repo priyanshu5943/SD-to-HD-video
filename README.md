@@ -78,9 +78,11 @@ SWINS2R model has achieved state-of-the-art performance on classical, lightweigh
 3. run the model using `main_test_swin2sr.py` and `--save_img_only`. 
 
 
-4. we process the images in `real_inputs/` and the outputs are stored in `results/swin2sr_{TASK}_x{SCALE}` where TASK and SCALE are the selected options. You can just navigate through `results/`
+4. we process the images in `real-inputs` and the outputs are stored in `results/swin2sr_{TASK}_x{SCALE}` where TASK and SCALE are the selected options. You can just navigate through `results/`
+
 the general code is this 
-! python main_test_swin2sr.py --task compressed_sr --scale 4 --training_patch_size 48 --model_path model_zoo/swin2sr/Swin2SR_CompressedSR_X4_48.pth --folder_lq /content/SD-to-HD-video/testsets/real-inputs --save_img_only
+
+#### ! python main_test_swin2sr.py --task compressed_sr --scale 4 --training_patch_size 48 --model_path model_zoo/swin2sr/Swin2SR_CompressedSR_X4_48.pth --folder_lq path_of_image_sequences --save_img_only
 
 
 
@@ -93,7 +95,7 @@ the general code is this
 
 the general code is this 
 
-python make_video.py HD_image_sequence_path     original_video_path   Provide_Enhanced_video_name
+#### python make_video.py HD_image_sequence_path     original_video_path   Provide_Enhanced_video_name
 
 
 ```
