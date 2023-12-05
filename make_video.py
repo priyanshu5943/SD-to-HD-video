@@ -1,7 +1,6 @@
 import os
 import cv2
 import numpy as np
-from glob import glob
 import argparse
 import subprocess
 
@@ -17,7 +16,8 @@ def images_to_video(image_folder, video_name, fps, audio_path=None):
     height, width, layers = frame.shape
 
     # Create a VideoWriter object to write the video
-    video = cv2.VideoWriter(video_name, cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
+    output_video_name = os.path.splitext(os.path.basename(video_name))[0] + ".HD"
+    video = cv2.VideoWriter(output_video_name, cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
 
     # Sort the images based on the index in their filenames
     sorted_images = sorted(images, key=lambda x: int(x.split('_')[1].split('.')[0]))
@@ -36,10 +36,10 @@ def images_to_video(image_folder, video_name, fps, audio_path=None):
 
     # Add audio to the output video
     if audio_path:
-        add_audio(video_name, audio_path)
+        add_audio(output_video_name, audio_path)
 
 def add_audio(video_path, audio_path):
-    output_video_path = video_path.replace(".mp4", ".HD")
+    output_video_path = os.path.splitext(video_path)[0] + ".HD.mp4"
     cmd = f"ffmpeg -i {video_path} -i {audio_path} -c:v copy -c:a aac -strict experimental -map 0:v:0 -map 1:a:0 {output_video_path}"
     subprocess.call(cmd, shell=True)
 
@@ -47,7 +47,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert a sequence of images to a video.")
     parser.add_argument("image_sequence_path", help="Path to the folder containing image sequence")
     parser.add_argument("file_path", help="Path to the video file for capture")
-    parser.add_argument("output_video_name", help="Name of the output video file")
     args = parser.parse_args()
 
     # Capture the video
@@ -61,4 +60,4 @@ if __name__ == "__main__":
     fps = cap.get(cv2.CAP_PROP_FPS)
 
     # Example usage
-    images_to_video(args.image_sequence_path, args.output_video_name, fps, audio_path=args.file_path)
+    images_to_video(args.image_sequence_path, args.file_path, fps, audio_path=args.file_path)
