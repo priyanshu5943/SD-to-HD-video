@@ -17,22 +17,13 @@
 
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2209.11345"><img src="media/swin2sr.png" alt="swin2sr" width="800" border="0"></a>
+  <img src="examples/swin2sr.png" alt="swin2sr" width="800" border="0"></a>
 </p>
 
 > Compression plays an important role on the efficient transmission and storage of images and videos through band-limited systems such as streaming services, virtual reality or videogames. However, compression unavoidably leads to artifacts and the loss of the original information, which may severely degrade the visual quality. For these reasons, quality enhancement of compressed images has become a popular research topic. While most state-of-the-art image restoration methods are based on convolutional neural networks, other transformers-based methods such as SwinIR, show impressive performance on these tasks.
 In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for image super-resolution, and in particular, the compressed input scenario. Using this method we can tackle the major issues in training transformer vision models, such as training instability, resolution gaps between pre-training and fine-tuning, and hunger on data. We conduct experiments on three representative tasks: JPEG compression artifacts removal, image super-resolution (classical and lightweight), and compressed image super-resolution. Experimental results demonstrate that our method, Swin2SR, can improve the training convergence and performance of SwinIR, and is a top-5 solution at the "AIM 2022 Challenge on Super-Resolution of Compressed Image and Video". 
 
-------------------
 
-#### Contents
-
-1. [Training](#training)
-1. [Results](#results)
-1. [Demos](#demos)
-1. [Testing](#testing)
-1. [Citation and Acknowledgement](#citation-and-acknowledgement)
-1. [Contact](#contact)
 
 ---------------------------------------------------
 
@@ -45,7 +36,6 @@ In this paper, we explore the novel Swin Transformer V2, to improve SwinIR for i
 
 SWINS2R model has achieved state-of-the-art performance on classical, lightweight and real-world video Super-Resolution (SR), JPEG compression artifact reduction, and compressed input super-resolution. it  use mainly the DIV2K Dataset and Flickr2K datasets for training, and for testing:  RealSRSet, 5images/Classic5/Set5, Set14, BSD100, Urban100 and Manga109  
 
-🌎 **[All visual results of Swin2SR can be downloaded here](https://github.com/mv-lab/swin2sr/releases)**. 
 
 <br>
 
