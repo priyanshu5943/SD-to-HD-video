@@ -1,12 +1,17 @@
+
+#make the video out of images
+
+
 import os
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 from glob import glob
+import PIL
 import argparse
-import subprocess
 
 # Define a function to convert a sequence of images to a video
-def images_to_video(image_folder, video_name, fps, audio_path=None):
+def images_to_video(image_folder, video_name, fps):
     # Get a list of image files in the specified folder
     images = [img for img in os.listdir(image_folder) if img.endswith(".png")]
 
@@ -34,26 +39,19 @@ def images_to_video(image_folder, video_name, fps, audio_path=None):
     # Release the VideoWriter to close the output video file
     video.release()
 
-    # Add audio to the output video
-    if audio_path:
-        add_audio(video_name, audio_path)
-
-def add_audio(video_path, audio_path):
-    output_video_path = video_path.replace(".mp4", "_with_audio.mp4")
-    cmd = f"ffmpeg -i {video_path} -i {audio_path} -c:v copy -c:a aac -strict experimental -map 0:v:0 -map 1:a:0 {output_video_path}"
-    subprocess.call(cmd, shell=True)
-
 if __name__ == "__main__":
+    import argparse
+
     parser = argparse.ArgumentParser(description="Convert a sequence of images to a video.")
     parser.add_argument("image_sequence_path", help="Path to the folder containing image sequence")
     parser.add_argument("file_path", help="Path to the video file for capture")
     parser.add_argument("output_video_name", help="Name of the output video file")
     args = parser.parse_args()
 
-    # Capture the video
+    # capture the video
     cap = cv2.VideoCapture(args.file_path)
 
-    # Check if capture was successful
+    # check if capture was successful
     if not cap.isOpened():
         print("Error: Could not open video file.")
         exit()
@@ -61,4 +59,4 @@ if __name__ == "__main__":
     fps = cap.get(cv2.CAP_PROP_FPS)
 
     # Example usage
-    images_to_video(args.image_sequence_path, args.output_video_name, fps, audio_path=args.file_path)
+    images_to_video(args.image_sequence_path, args.output_video_name, fps)
