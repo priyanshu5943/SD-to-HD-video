@@ -60,7 +60,8 @@ SWINS2R model has achieved state-of-the-art performance on classical, lightweigh
 
 ```
 
-2. Make image sequences out of images the model will then convert these images to enhnaced ones.
+2. Make image sequences out of videos  the model expects low quality and will then convert these images to enhnaced ones.
+### The general code is      !python make_image_sequence.py --file_path copy_the_path_of_video
 
 ```
 ! python make_image_sequence.py --file_path /content/videotovideoimage/tokyo.mp4
