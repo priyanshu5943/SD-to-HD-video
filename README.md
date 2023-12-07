@@ -3,7 +3,7 @@
 ## [Swin2SR: for video resolution mp4 to HD]
 
 
-[ <a href="https://colab.research.google.com/drive/1paPrt62ydwLv2U2eZqfcFsePI4X4WRR1?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1luTg43OPI5tasPoac2J99kIDwcXCjO7s?usp=sharing )
+[ <a href="https://colab.research.google.com/drive/1luTg43OPI5tasPoac2J99kIDwcXCjO7s?usp=sharinghttps://colab.research.google.com/drive/1luTg43OPI5tasPoac2J99kIDwcXCjO7s?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a>](https://colab.research.google.com/drive/1luTg43OPI5tasPoac2J99kIDwcXCjO7s?usp=sharing )
 
 
 
